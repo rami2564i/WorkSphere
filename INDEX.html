@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkSphere - Gestion du personnel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <aside class="sidebar">
+            <h2>Unassigned Staff</h2>
+
+            <button id="addWorkerBtn">Add New Worker</button>
+
+            <ul class="unassigned-list">
+                <li class="employee-card" draggable="true">
+                    <img src="christian.jpg" alt="Profile">
+                    <span>John Doe</span>
+                    <span class="role">Technicien IT</span>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="floor-plan">
+            <div class="zone" id="conference-room">
+                <h3>Salle de conférence</h3>
+                <div class="employees"></div>
+            </div>
+            <div class="zone" id="reception">
+                <h3>Réception</h3>
+                <div class="employees"></div>
+            </div>
+            <div class="zone" id="server-room">
+                <h3>Salle des serveurs</h3>
+                <div class="employees"></div>
+            </div>
+            <div class="zone" id="security-room">
+                <h3>Salle de sécurité</h3>
+                <div class="employees"></div>
+            </div>
+            <div class="zone" id="staff-room">
+                <h3>Salle du personnel</h3>
+                <div class="employees"></div>
+            </div>
+            <div class="zone" id="archive-room">
+                <h3>Salle d’archives</h3>
+                <div class="employees"></div>
+            </div>
+        </main>
+    </div>
+
+
+
+    <!-- WORKER MODAL -->
+    <div id="workerModal" class="modal">
+        <div class="modal-content">
+            <h2>Add Worker</h2>
+
+            <form id="worker-form">
+
+                <input type="text" id="name" placeholder="Name">
+
+                <input type="email" id="email" placeholder="Email">
+
+                <!-- ROLE AS SELECT -->
+                <select id="role">
+                <option value="">Select Role</option>
+                <option value="IT Technician">IT Technician</option>
+                <option value="Security">Security</option>
+                <option value="Manager">Manager</option>
+                <option value="Receptionist">Receptionist</option>
+                <option value="Developer">Developer</option>
+            </select>
+
+                <!-- PHOTO OPTIONAL -->
+                <input type="url" id="photo" placeholder="Photo URL (optional)">
+                <div id="photo-preview" style="text-align:center;margin-top:10px;"></div>
+
+                <h3>Experience</h3>
+
+                <div id="experiences-container"></div>
+                <button type="button" id="add-experience-btn">+ Add Experience</button>
+
+                <button type="submit" class="submit-btn">Add Worker</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- WORKERS LIST -->
+    <ul class="unassigned-list"></ul>
+
+
+    <div id="photo-preview" style="margin-top:10px;text-align:center;"></div>
+    </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
