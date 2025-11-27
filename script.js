@@ -116,4 +116,33 @@ workerForm.addEventListener("submit", (e) => {
     photoPreview.innerHTML = "";
     experiencesContainer.innerHTML = "";
     modal.style.display = "none";
+}); // Allow dropping in zones
+zones.forEach(zone => {
+    zone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+    });
+
+    zone.addEventListener("drop", (e) => {
+        e.preventDefault();
+
+        const empId = e.dataTransfer.getData("text/plain");
+        const employee = document.getElementById(empId);
+
+        if (!employee) return;
+
+        const empRole = employee.querySelector(".role").innerText.trim();
+
+        // Get allowed roles from data-allow attribute
+        const allowedRoles = zone.dataset.allow.split(",").map(r => r.trim());
+
+        // If the zone allows all roles ("*"), always allow
+        if (allowedRoles.includes("*") || allowedRoles.includes(empRole)) {
+            // Append employee to the employees container inside the zone
+            zone.querySelector(".employees").appendChild(employee);
+        } else {
+            alert(`
+                Role "${empRole}"
+                is not allowed in this zone.`);
+        }
+    });
 });

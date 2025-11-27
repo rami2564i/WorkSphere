@@ -16,43 +16,50 @@
 
             <button id="addWorkerBtn">Add New Worker</button>
 
+            <!-- ONLY ONE LIST -->
             <ul class="unassigned-list">
-                <li class="employee-card" draggable="true">
+                <li class="employee-card" id="emp-1" draggable="true">
                     <img src="christian.jpg" alt="Profile">
                     <span>John Doe</span>
-                    <span class="role">Technicien IT</span>
+                    <span class="role">IT Technician</span>
                 </li>
             </ul>
         </aside>
 
         <main class="floor-plan">
-            <div class="zone" id="conference-room">
+
+            <div class="zone" id="conference-room" data-allow="Manager,Receptionist">
                 <h3>Salle de conférence</h3>
                 <div class="employees"></div>
             </div>
-            <div class="zone" id="reception">
+
+            <div class="zone" id="reception" data-allow="Receptionist,Manager">
                 <h3>Réception</h3>
                 <div class="employees"></div>
             </div>
-            <div class="zone" id="server-room">
+
+            <div class="zone" id="server-room" data-allow="IT Technician,Developer">
                 <h3>Salle des serveurs</h3>
                 <div class="employees"></div>
             </div>
-            <div class="zone" id="security-room">
+
+            <div class="zone" id="security-room" data-allow="Security">
                 <h3>Salle de sécurité</h3>
                 <div class="employees"></div>
             </div>
-            <div class="zone" id="staff-room">
+
+            <div class="zone" id="staff-room" data-allow="*">
                 <h3>Salle du personnel</h3>
                 <div class="employees"></div>
             </div>
-            <div class="zone" id="archive-room">
+
+            <div class="zone" id="archive-room" data-allow="IT Technician,Security">
                 <h3>Salle d’archives</h3>
                 <div class="employees"></div>
             </div>
+
         </main>
     </div>
-
 
 
     <!-- WORKER MODAL -->
@@ -63,25 +70,21 @@
             <form id="worker-form">
 
                 <input type="text" id="name" placeholder="Name">
-
                 <input type="email" id="email" placeholder="Email">
 
-                <!-- ROLE AS SELECT -->
                 <select id="role">
-                <option value="">Select Role</option>
-                <option value="IT Technician">IT Technician</option>
-                <option value="Security">Security</option>
-                <option value="Manager">Manager</option>
-                <option value="Receptionist">Receptionist</option>
-                <option value="Developer">Developer</option>
-            </select>
+                    <option value="">Select Role</option>
+                    <option value="IT Technician">IT Technician</option>
+                    <option value="Security">Security</option>
+                    <option value="Manager">Manager</option>
+                    <option value="Receptionist">Receptionist</option>
+                    <option value="Developer">Developer</option>
+                </select>
 
-                <!-- PHOTO OPTIONAL -->
                 <input type="url" id="photo" placeholder="Photo URL (optional)">
-                <div id="photo-preview" style="text-align:center;margin-top:10px;"></div>
+                <div id="photo-preview"></div>
 
                 <h3>Experience</h3>
-
                 <div id="experiences-container"></div>
                 <button type="button" id="add-experience-btn">+ Add Experience</button>
 
@@ -89,15 +92,6 @@
             </form>
         </div>
     </div>
-
-    <!-- WORKERS LIST -->
-    <ul class="unassigned-list"></ul>
-
-
-    <div id="photo-preview" style="margin-top:10px;text-align:center;"></div>
-    </div>
-    </div>
-    <!-- R>dj;kHGF -->
 
     <script src="script.js"></script>
 </body>
